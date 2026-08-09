@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de Preenchimento do Prontuário — Registros que Cuidam</title>
+  <meta name="description" content="Passo a passo completo para registro da consulta de puericultura no prontuário eletrônico Fastmedic: SOAP, BPA, CIAP2, CID e Ferramentas." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>" />
+  <style>
+    .inner-page { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding-bottom: 80px; max-width: 1160px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+    @media(max-width:900px){ .inner-page { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar" style="position:fixed;top:var(--nav-h);left:0;height:3px;background:linear-gradient(90deg,var(--verde),var(--roxo));z-index:999;width:0%;transition:width 0.1s;"></div>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">👶</div>
+          Registros que Cuidam
+        </a>
+        <div class="nav-links">
+          <a href="apresentacao.html">Apresentação</a>
+          <a href="puericultura.html">Puericultura</a>
+          <a href="indicadores.html">Indicadores</a>
+          <a href="instrumentos.html">Instrumentos</a>
+          <a href="prontuario.html" class="btn-nav active">📋 Guia de Preenchimento</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="apresentacao.html">📖 Apresentação do Guia</a>
+    <a href="puericultura.html">🌱 Puericultura e Desenvolvimento</a>
+    <a href="indicadores.html">📊 Indicadores</a>
+    <a href="instrumentos.html">🗂️ Instrumentos de Registro</a>
+    <a href="prontuario.html">📋 Guia de Preenchimento</a>
+    <a href="referencias.html">📚 Referências</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Início</a> <span>›</span> <span>Guia de Preenchimento</span></div>
+      <h1>📋 Guia de Preenchimento do Prontuário</h1>
+      <p>Passo a passo completo para registro da consulta de puericultura no sistema Fastmedic</p>
+    </div>
+  </div>
+
+  <!-- Inner Page Grid -->
+  <div class="inner-page" style="padding-top: 40px;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Seções do Prontuário</div>
+      <nav class="sidebar-nav">
+        <a href="#acesso"><span class="num">2.1</span> Acesso ao Sistema</a>
+        <a href="#iniciar"><span class="num">2.2</span> Iniciar Registro</a>
+        <a href="#subjetivo"><span class="num">2.3</span> Subjetivo e BPA</a>
+        <a href="#objetivo"><span class="num">2.4</span> Objetivo</a>
+        <a href="#avaliacao"><span class="num">2.5</span> Avaliação</a>
+        <a href="#plano"><span class="num">2.6</span> Plano</a>
+        <a href="#ferramentas"><span class="num">2.7</span> Ferramentas SOAP</a>
+        <a href="#classificacao" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.1</span> Classificação</a>
+        <a href="#parto" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.2</span> Info. Parto</a>
+        <a href="#desenvolvimento" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.3</span> Desenv. Psicomotor</a>
+        <a href="#irdi" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.4</span> IRDI</a>
+        <a href="#complicacoes" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.5</span> Complicações</a>
+        <a href="#alimentar" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.6</span> Marcadores Alimentar</a>
+        <a href="#neonatal" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.7</span> Intercorr. Neonatal</a>
+        <a href="#utah" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.8</span> Teste Linguagem</a>
+        <a href="#grafico" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.9</span> Gráfico Monitoriz.</a>
+        <a href="#ficha" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.10</span> Ficha Monitoriz.</a>
+        <a href="#rastreio" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.11</span> Rastreio</a>
+        <a href="#vacinacao" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.12</span> Vacinação</a>
+        <a href="#vitamina-a" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.13</span> Vitamina A</a>
+        <a href="#ferro" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.14</span> Ferro</a>
+        <a href="#odonto" style="padding-left:28px;"><span class="num" style="font-size:0.65rem;">2.7.15</span> Odontológica</a>
+        <a href="#finalizar"><span class="num">2.8</span> Finalizar Consulta</a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content-area">
+
+      <!-- 2.1 Acesso -->
+      <div class="content-section fade-up" id="acesso">
+        <h2><span class="section-num">2.1</span> Acesso ao Prontuário Eletrônico</h2>
+        <p>Para iniciar o registro no Prontuário eletrônico, acesse o sistema Fastmedic:</p>
+        <div class="alert alert-info">
+          <span class="alert-icon">🔗</span>
+          <div>
+            <strong>Endereço do sistema</strong>
+            <p><a href="https://saude.fastmedic.com.br/fortaleza/" target="_blank" rel="noopener">saude.fastmedic.com.br/fortaleza</a></p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/tela_fastmedic.png" alt="Tela do Fastmedic" loading="lazy" />
+              <div class="screenshot-caption">Tela inicial do Fastmedic</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/login_fastmedic.png" alt="Login Fastmedic" loading="lazy" />
+              <div class="screenshot-caption">Entre com usuário e senha</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:16px;">Entre no módulo prontuário utilizando seu <strong>usuário e senha</strong>.</p>
+      </div>
+
+      <!-- 2.2 Iniciar -->
+      <div class="content-section fade-up" id="iniciar">
+        <h2><span class="section-num">2.2</span> Como Iniciar o Registro da Consulta</h2>
+        <div class="alert alert-tip">
+          <span class="alert-icon">🖥️</span>
+          <div><strong>Preenchimento no Prontuário eletrônico</strong>
+            <p>Antes de começar o preenchimento do SOAP, é importante realizar os primeiros passos no sistema.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1°</div>
+            <div class="step-body">
+              <h4>Acessar o atendimento da criança no prontuário</h4>
+              <p>Localize a criança no sistema e abra o atendimento correspondente.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2°</div>
+            <div class="step-body">
+              <h4>Conferir os dados do paciente</h4>
+              <p>Verifique nome, data de nascimento e outros dados para garantir que o registro será feito no paciente correto.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3°</div>
+            <div class="step-body">
+              <h4>Iniciar o registro na aba de atendimento (SOAP)</h4>
+              <p>Após selecionar a criança, o prontuário direciona automaticamente para a tela de registro, iniciando pela aba <strong>Subjetivo</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-warn">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Atenção</strong>
+            <p>Esse momento inicial garante que o registro será feito no paciente correto e dentro do atendimento adequado.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/atendimento_profissional.png" alt="Atendimento profissional" loading="lazy" />
+              <div class="screenshot-caption">Selecionar atendimento</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/ferramentas_soap.png" alt="Ferramentas SOAP" loading="lazy" />
+              <div class="screenshot-caption">Ferramentas do SOAP — Criança/Adolescente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.3 Subjetivo e BPA -->
+      <div class="content-section fade-up" id="subjetivo">
+        <h2><span class="section-num">2.3</span> Subjetivo e BPA</h2>
+        <p>O <strong>Subjetivo</strong> refere-se às informações relatadas pelo responsável pela criança.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1°</div>
+            <div class="step-body"><h4>Escrever no campo motivo do atendimento</h4><p>Descreva conforme as informações relatadas pelo responsável pela criança.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2°</div>
+            <div class="step-body"><h4>Selecionar o BPA</h4><p>Selecione o Boletim de Produção Ambulatorial correspondente ao profissional.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3°</div>
+            <div class="step-body"><h4>Clicar em Salvar</h4><p>Após informar o procedimento, clique em Salvar para registrar.</p></div>
+          </div>
+        </div>
+
+        <h3>📋 Seleção do BPA</h3>
+        <p>Selecione o procedimento correspondente ao profissional:</p>
+        <div class="bpa-cards">
+          <div class="bpa-card">
+            <h4>🩺 Médico / Pediatra</h4>
+            <div class="bpa-code">0301016000</div>
+            <p>Consulta de puericultura de médico na Atenção Primária</p>
+          </div>
+          <div class="bpa-card">
+            <h4>👩‍⚕️ Enfermeiro e demais profissionais de nível superior</h4>
+            <div class="bpa-code">0301016001</div>
+            <p>Consulta de puericultura de profissionais de nível superior na Atenção Primária (exceto médico)</p>
+          </div>
+        </div>
+
+        <div class="alert alert-tip" style="margin-top:16px;">
+          <span class="alert-icon">💡</span>
+          <div><strong>Por que o BPA é importante?</strong>
+            <ul>
+              <li>Produção da unidade</li>
+              <li>Monitoramento dos atendimentos</li>
+              <li>Impacta diretamente nos indicadores</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/subjetivo_bpa_salvar.png" alt="Subjetivo, BPA e Salvar" loading="lazy" />
+              <div class="screenshot-caption">Subjetivo, BPA e botão Salvar</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/bpa_consulta.png" alt="BPA Consulta de Puericultura" loading="lazy" />
+              <div class="screenshot-caption">BPA — Consulta de Puericultura (nível superior)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Objetivo -->
+      <div class="content-section fade-up" id="objetivo">
+        <h2><span class="section-num">2.4</span> Objetivo</h2>
+        <p>Compreende os dados obtidos por meio da observação direta, exame físico e avaliação realizadas pelo profissional de saúde. É nesse momento que o profissional registra dados mensuráveis e achados clínicos, complementando as informações do Subjetivo.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Acessar a aba Objetivo</h4><p>Clique na aba Objetivo no prontuário eletrônico.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Inserir dados antropométricos</h4><p>Conforme a faixa etária: <strong>peso, altura, perímetro cefálico</strong>. O sistema calcula automaticamente o IMC.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Registrar temperatura e demais dados</h4><p>Registrar temperatura e demais dados quando pertinentes ao atendimento.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Descrever o exame físico</h4><p>No campo <em>Objetivo — avaliação do profissional da saúde</em>, descreva o exame físico realizado.</p></div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Salvar</h4><p>Após o preenchimento completo, clique em Salvar.</p></div></div>
+        </div>
+        <div class="alert alert-warn">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Medidas antropométricas são essenciais para:</strong>
+            <ul>
+              <li>Avaliação do crescimento infantil</li>
+              <li>Plotagem adequada nas curvas de crescimento</li>
+              <li>Monitoramento dos indicadores</li>
+              <li>Qualificação do cuidado</li>
+            </ul>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/objetivo.png" alt="Aba Objetivo" loading="lazy" />
+              <div class="screenshot-caption">Aba Objetivo — dados antropométricos e exame físico</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p>Após o registro no prontuário, as informações devem ser transcritas para a Caderneta da Criança, na <strong>Parte II — Registros do acompanhamento da criança</strong>, nos tópicos correspondentes de crescimento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.5 Avaliação -->
+      <div class="content-section fade-up" id="avaliacao">
+        <h2><span class="section-num">2.5</span> Avaliação</h2>
+        <p>A aba <strong>Avaliação</strong> corresponde ao momento em que o profissional registra sua interpretação clínica com base nas informações coletadas na consulta de Puericultura.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Clique na aba Avaliação</h4><p>Acesse a aba Avaliação no prontuário.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Registrar o código (CIAP2 ou CID)</h4><p>Conforme o profissional, selecione CIAP2 (enfermagem/APS) ou CID (medicina).</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Descrever a avaliação clínica</h4><p>No campo Descrição, escreva a avaliação clínica de forma resumida e objetiva.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Salvar</h4><p>Revise as informações e clique em Salvar.</p></div></div>
+        </div>
+
+        <h3>🔵 Enfermagem — CIAP2</h3>
+        <p>Para o registro da consulta de enfermagem, deve-se acessar o campo CIAP 2 e utilizar a opção modos de pesquisa, que permite localizar o código tanto pelo número quanto pela descrição:</p>
+        <div class="code-badge">
+          <span>CIAP2</span>
+          <strong>46</strong>
+          <span>— Consulta com profissional de APS</span>
+        </div>
+        <p style="margin-top:12px;">O profissional pode digitar o código <strong>46</strong> ou realizar a busca pelo termo <em>"consulta"</em>, selecionando a opção correspondente.</p>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/avaliacao_ciaps_cid.png" alt="Avaliação CIAPS ou CID" loading="lazy" />
+              <div class="screenshot-caption">Campo de Avaliação — CIAPS ou CID</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/ciap2_descricao_codigo.png" alt="CIAP2 descrição ou código" loading="lazy" />
+              <div class="screenshot-caption">Pesquisa por descrição ou código CIAP2</div>
+            </div>
+          </div>
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/ciap2_codigo_46.png" alt="CIAP2 código 46" loading="lazy" />
+              <div class="screenshot-caption">Código CIAP2 46</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/ciap2_46_selecionado.png" alt="CIAP2 46 selecionado" loading="lazy" />
+              <div class="screenshot-caption">CIAP2 46 selecionado</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:24px;">🔴 Medicina — CID</h3>
+        <div class="code-badge">
+          <span>CID</span>
+          <strong>Z00.1</strong>
+          <span>— Exame de rotina de saúde da criança</span>
+        </div>
+        <p style="margin-top:12px;">Para a medicina, clicar no CID e realizar a pesquisa: <strong>Z00.1</strong> — Exame de rotina de saúde da criança.</p>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/avaliacao.png" alt="Avaliação" loading="lazy" />
+              <div class="screenshot-caption">Aba Avaliação</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/cid_exame_rotina.png" alt="CID Exame de rotina" loading="lazy" />
+              <div class="screenshot-caption">CID Z00.1 — Exame de rotina de saúde da criança</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.6 Plano -->
+      <div class="content-section fade-up" id="plano">
+        <h2><span class="section-num">2.6</span> Plano</h2>
+        <p>Esta seção é o momento de registrar, após a avaliação do profissional, <strong>todas as condutas realizadas</strong>, orientações de saúde dadas à família e ações e seguimentos.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Clique na aba Plano</h4><p>Acesse a aba Plano no prontuário.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Preencher o campo</h4><p>Registre: <strong>Objetivo Terapêutico / Intervenção / Procedimentos</strong>.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Clique em Salvar</h4><p>Salve as informações registradas.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/plano.png" alt="Plano sem preenchimento" loading="lazy" />
+              <div class="screenshot-caption">Aba Plano — campo vazio</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/plano_preenchido.png" alt="Plano preenchido" loading="lazy" />
+              <div class="screenshot-caption">Aba Plano — preenchido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7 Ferramentas -->
+      <div class="content-section fade-up" id="ferramentas">
+        <h2><span class="section-num">2.7</span> Ferramentas do SOAP — Criança/Adolescente</h2>
+        <p>Após realizar o atendimento no SOAP, o sistema libera a aba <strong>Ferramentas do SOAP</strong>, direcionando para o Programa: Criança/Adolescente. Aqui você complementa a consulta de puericultura com registros específicos.</p>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/ferramentas_soap.png" alt="Ferramentas SOAP" loading="lazy" />
+              <div class="screenshot-caption">Ferramentas do SOAP — Programa Criança/Adolescente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.1 Classificação -->
+      <div class="content-section fade-up" id="classificacao">
+        <h2><span class="section-num">2.7.1</span> Classificação</h2>
+        <p>Define o perfil da criança no atendimento conforme a <strong>classificação de risco</strong>.</p>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/classificacao_crianca.png" alt="Classificação Criança/Adolescente" loading="lazy" />
+              <div class="screenshot-caption">Classificação — Criança/Adolescente</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/classificacao_risco.png" alt="Estratificação de risco" loading="lazy" />
+              <div class="screenshot-caption">Classificação — Estratificação de Risco</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.2 Parto -->
+      <div class="content-section fade-up" id="parto">
+        <h2><span class="section-num">2.7.2</span> Informações sobre o Parto</h2>
+        <p>Compreende os dados relacionados às condições de nascimento da criança. Inclui informações como: <strong>tipo de parto, idade gestacional, intercorrências, condições ao nascer e triagem neonatal</strong>.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Realizar o preenchimento das informações</h4><p>Preencha os campos de informações sobre parto, nascimento e internação neonatal.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Registrar informações sobre a alta</h4><p>Registre no campo <em>Informações sobre a alta</em> os dados relevantes do nascimento e condições de saída.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/parto_sem_preenchimento.png" alt="Informações parto sem preenchimento" loading="lazy" />
+              <div class="screenshot-caption">Informações sobre o Parto — campo vazio</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/parto_preenchido.png" alt="Informações parto preenchidas" loading="lazy" />
+              <div class="screenshot-caption">Informações sobre o Parto — preenchidas</div>
+            </div>
+          </div>
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/triagens_neonatais.png" alt="Triagens neonatais" loading="lazy" />
+              <div class="screenshot-caption">Triagens Neonatais</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/pre_natal_parto.png" alt="Pré-natal, parto, nascimento" loading="lazy" />
+              <div class="screenshot-caption">Pré-natal, Parto, Nascimento e Alta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.3 Desenvolvimento Psicomotor -->
+      <div class="content-section fade-up" id="desenvolvimento">
+        <h2><span class="section-num">2.7.3</span> Desenvolvimento Psicomotor</h2>
+        <p>Compreende a avaliação do desenvolvimento neuropsicomotor da criança, considerando os marcos esperados para a idade, permitindo identificar precocemente atrasos ou alterações no desenvolvimento.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Selecionar a faixa etária</h4><p>Selecione a faixa etária correspondente à criança.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Avaliar os marcos do desenvolvimento</h4><p>Avalie os marcos apresentados na tabela conforme a faixa etária.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Marcar os itens observados</h4><p>Marque os itens conforme observado durante o atendimento.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Registrar observações</h4><p>Registre observações, se necessário.</p></div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ️</span>
+          <div><strong>Resultado automático</strong>
+            <p>Após o preenchimento, o sistema apresenta a avaliação do desenvolvimento da criança, indicando se o resultado está adequado, se há provável atraso ou alerta no desenvolvimento.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/desenv_psicomotor_vazio.png" alt="Desenvolvimento psicomotor sem preencher" loading="lazy" />
+              <div class="screenshot-caption">Desenvolvimento Psicomotor — sem preenchimento</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/desenv_psicomotor_preenchido.png" alt="Desenvolvimento psicomotor preenchido" loading="lazy" />
+              <div class="screenshot-caption">Desenvolvimento Psicomotor — preenchido</div>
+            </div>
+          </div>
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/marcos_desenvolvimento_0_6.png" alt="Marcos do desenvolvimento 0 a 6 meses" loading="lazy" />
+              <div class="screenshot-caption">Marcos do Desenvolvimento — Nascimento aos 6 Meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.4 IRDI -->
+      <div class="content-section fade-up" id="irdi">
+        <h2><span class="section-num">2.7.4</span> IRDI — Indicadores de Risco de Desenvolvimento Infantil</h2>
+        <p>Os IRDI consistem em um instrumento de observação clínica utilizado para identificar precocemente sinais de risco no desenvolvimento psíquico e na constituição subjetiva da criança, especialmente na relação com o cuidador.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Preencher os itens conforme a faixa etária</h4><p>Avalie e preencha os itens correspondentes à faixa etária da criança.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Avaliar a presença ou ausência dos indicadores</h4><p>Marque a presença ou ausência de cada indicador.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Registrar o resultado</h4><p>Registre o resultado conforme análise do instrumento.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/irdi_sem_preenchimento.png" alt="IRDI sem preenchimento" loading="lazy" />
+              <div class="screenshot-caption">IRDI — sem preenchimento</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/irdi_em_preenchimento.png" alt="IRDI em preenchimento" loading="lazy" />
+              <div class="screenshot-caption">IRDI — em preenchimento</div>
+            </div>
+          </div>
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/irdi_preenchido.png" alt="IRDI preenchido" loading="lazy" />
+              <div class="screenshot-caption">IRDI — preenchido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.5 Complicações -->
+      <div class="content-section fade-up" id="complicacoes">
+        <h2><span class="section-num">2.7.5</span> Complicações e Problemas</h2>
+        <p>Registro de fatores e condições que podem impactar a saúde da criança. Inclui aspectos biológicos, condições de vida, estilo de vida e fatores socioeconômicos.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Avaliar cada item apresentado</h4><p>Avalie cada item apresentado na tela.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Responder Sim ou Não</h4><p>Para cada pergunta, conforme a presença de fatores relevantes (biológicos, hábitos de vida e contexto social).</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/complicacoes_sem_preenchimento.png" alt="Complicações sem preenchimento" loading="lazy" />
+              <div class="screenshot-caption">Complicações e Problemas — sem preenchimento (campo biológico)</div>
+            </div>
+          </div>
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/complicacoes_continuacao_1.png" alt="Complicações continuação 1" loading="lazy" />
+              <div class="screenshot-caption">Continuação — campo biológico e estilo de vida</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/complicacoes_continuacao_2.png" alt="Complicações continuação 2" loading="lazy" />
+              <div class="screenshot-caption">Continuação — campo socioeconômico</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.6 Marcadores Alimentar -->
+      <div class="content-section fade-up" id="alimentar">
+        <h2><span class="section-num">2.7.6</span> Marcadores de Consumo Alimentar</h2>
+        <p>Instrumento de avaliação dos hábitos alimentares da criança. Permite identificar padrões alimentares e possíveis riscos nutricionais.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Avaliar cada item</h4><p>Avalie cada item apresentado na tela.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Responder Sim, Não ou Não sabe</h4><p>Para cada marcador, conforme relato do responsável.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Considerar frequência e qualidade</h4><p>Considere a frequência e qualidade da alimentação relatada.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+        <div class="alert alert-warn">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Atenção</strong>
+            <p>O correto preenchimento dos marcadores de consumo alimentar impacta diretamente nos indicadores de saúde, sendo essencial para o monitoramento do aleitamento materno exclusivo.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/marcadores_alimentar_vazio.png" alt="Marcadores alimentar vazio" loading="lazy" />
+              <div class="screenshot-caption">Marcadores de Consumo Alimentar — sem preenchimento</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/marcadores_alimentar_preenchido.png" alt="Marcadores alimentar preenchido" loading="lazy" />
+              <div class="screenshot-caption">Marcadores de Consumo Alimentar — preenchido</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p>Registre o tipo de Aleitamento/alimentação da criança em cada consulta de Puericultura no espaço de Acompanhamento da criança e consultas recomendadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.7 Intercorrências Neonatal -->
+      <div class="content-section fade-up" id="neonatal">
+        <h2><span class="section-num">2.7.7</span> Intercorrências Neonatal</h2>
+        <p>Registro de intercorrências ocorridas no período neonatal. Permite identificar condições e eventos que podem impactar o desenvolvimento e a saúde da criança.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Avaliar cada item</h4><p>Avalie cada item apresentado na tela.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Responder Sim ou Não</h4><p>Para cada intercorrência, conforme relato do responsável e/ou registros disponíveis.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Registrar outras intercorrências</h4><p>Se necessário, registre outras intercorrências relevantes.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/intercorrencias_neonatal.png" alt="Intercorrências neonatal" loading="lazy" />
+              <div class="screenshot-caption">Intercorrências Neonatal — sem preenchimento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.8 UTAH -->
+      <div class="content-section fade-up" id="utah">
+        <h2><span class="section-num">2.7.8</span> Teste de Desenvolvimento da Linguagem (UTAH)</h2>
+        <p>Triagem do desenvolvimento da linguagem. Avalia possíveis atrasos ou alterações na comunicação da criança.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Avaliar cada item</h4><p>Avalie cada item apresentado na tela.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Responder Sim ou Não</h4><p>Para cada pergunta, conforme observação e/ou relato do responsável.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Considerar aspectos da comunicação</h4><p>Considere aspectos da comunicação verbal e não verbal da criança.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações.</p></div></div>
+        </div>
+      </div>
+
+      <!-- 2.7.9 Gráfico -->
+      <div class="content-section fade-up" id="grafico">
+        <h2><span class="section-num">2.7.9</span> Gráfico de Monitorização</h2>
+        <p>Representação gráfica das medidas antropométricas da criança. Permite acompanhar o crescimento e identificar possíveis alterações.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Selecionar o gráfico</h4><p>Selecione o gráfico de monitorização desejado. O sistema realiza automaticamente a plotagem dos dados nas curvas de crescimento conforme idade e sexo.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Clicar em Imprimir</h4><p>Imprima o gráfico para entregar à família.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Avaliar as informações</h4><p>Avalie as informações conforme plotagem e identifique possíveis desvios (baixo peso, sobrepeso, atraso de crescimento).</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/grafico_monitorizacao.png" alt="Gráfico de monitorização" loading="lazy" />
+              <div class="screenshot-caption">Gráfico de Monitorização</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/grafico_monitorizacao_impresso.png" alt="Gráfico impresso" loading="lazy" />
+              <div class="screenshot-caption">Gráfico de Monitorização — impresso</div>
+            </div>
+          </div>
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/grafico_peso_0_2.png" alt="Gráfico peso 0-2 anos" loading="lazy" />
+              <div class="screenshot-caption">Gráfico Peso por Idade — 0 a 2 anos</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/grafico_comprimento_0_2.png" alt="Gráfico comprimento 0-2 anos" loading="lazy" />
+              <div class="screenshot-caption">Gráfico Comprimento por Idade — 0 a 2 anos</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <ul>
+              <li>Registrar os dados antropométricos a cada consulta</li>
+              <li>Plotar corretamente os pontos nos gráficos conforme sexo e idade</li>
+              <li>Garantir que os valores na caderneta sejam os mesmos do prontuário</li>
+              <li>Usar os gráficos como ferramenta de comunicação com a família</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.10 Ficha Monitorização -->
+      <div class="content-section fade-up" id="ficha">
+        <h2><span class="section-num">2.7.10</span> Ficha de Monitorização</h2>
+        <p>Resumo evolutivo da criança ao longo do acompanhamento.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Acessar a ficha</h4><p>Acesse a ficha de monitorização no sistema.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Clicar para imprimir</h4><p>Imprima a ficha para acompanhamento.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Visualizar o resumo</h4><p>Visualize o resumo dos registros já realizados ao longo do tempo.</p></div></div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/ficha_monitorizacao.png" alt="Ficha de monitorização" loading="lazy" />
+              <div class="screenshot-caption">Ficha de Monitorização</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/ficha_monitorizacao_impressa.png" alt="Ficha impressa" loading="lazy" />
+              <div class="screenshot-caption">Ficha de Monitorização — impressa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.11 Rastreio -->
+      <div class="content-section fade-up" id="rastreio">
+        <h2><span class="section-num">2.7.11</span> Telas de Instrumentos de Rastreio</h2>
+        <p>Refere-se à aplicação de instrumentos padronizados utilizados para identificação precoce de possíveis alterações no desenvolvimento infantil, comportamento e saúde mental, subsidiando a tomada de decisão clínica e o encaminhamento oportuno.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Acessar o instrumento adequado</h4><p>Acesse o instrumento de rastreio conforme a faixa etária e indicação clínica.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Registrar as respostas</h4><p>Registre as respostas conforme relato do responsável e/ou observação do profissional.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Verificar escores</h4><p>O prontuário poderá gerar escores ou classificações automáticas conforme o instrumento utilizado.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Descrever condutas</h4><p>Descreva as condutas adotadas diante de resultados sugestivos de risco.</p></div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Salvar</h4><p>Salve as informações após o preenchimento completo.</p></div></div>
+        </div>
+
+        <h3>🟡 M-CHAT (r/f) — Rastreio para TEA</h3>
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧩</span>
+          <div>
+            <strong>Transtorno do Espectro Autista</strong>
+            <p>Aplicado conforme faixa etária indicada: <strong>16 a 30 meses</strong>. Este instrumento está presente na Caderneta da Criança, reforçando sua utilização na Atenção Primária.</p>
+          </div>
+        </div>
+
+        <h3>🟠 Instrumento ABC</h3>
+        <div class="alert alert-tip">
+          <span class="alert-icon">📝</span>
+          <div>
+            <strong>Avaliação complementar do desenvolvimento e comportamento</strong>
+            <p>Utilizado para avaliação de crianças de <strong>31 meses a 6 anos</strong>.</p>
+          </div>
+        </div>
+
+        <h3>🔵 SNAP-IV</h3>
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧠</span>
+          <div>
+            <strong>Investigação de sinais sugestivos de TDAH</strong>
+            <p>Avalia atenção, hiperatividade e impulsividade. Indicado para crianças e adolescentes de <strong>7 a 17 anos</strong>, geralmente associado ao contexto escolar.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row cols-2">
+            <div class="screenshot-item">
+              <img src="assets/images/snap_iv_vazio.png" alt="SNAP-IV sem preenchimento" loading="lazy" />
+              <div class="screenshot-caption">SNAP-IV — sem preenchimento</div>
+            </div>
+            <div class="screenshot-item">
+              <img src="assets/images/snap_iv_opcoes.png" alt="SNAP-IV opções de preenchimento" loading="lazy" />
+              <div class="screenshot-caption">SNAP-IV — opções de preenchimento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.12 Vacinação -->
+      <div class="content-section fade-up" id="vacinacao">
+        <h2><span class="section-num">2.7.12</span> Vacinação</h2>
+        <p>A vacinação é um dos principais componentes da puericultura, devendo ser avaliada em <strong>todas as consultas</strong>.</p>
+        <p>Em todas as consultas de puericultura, o profissional deve avaliar a situação vacinal da criança, verificando o esquema vacinal no prontuário eletrônico e na Caderneta da Criança, identificando atrasos ou esquemas incompletos e orientando a atualização conforme o calendário vacinal vigente.</p>
+        <div class="alert alert-info">
+          <span class="alert-icon">💉</span>
+          <div><strong>Onde consultar no Fastmedic?</strong>
+            <ul>
+              <li>No <strong>cabeçalho da criança</strong></li>
+              <li>No item das Ferramentas do SOAP: <strong>Indicação de Vacinas</strong> (o registro é frequentemente alimentado pela equipe de técnicos de enfermagem)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/vacinacao_cabecalho.png" alt="Vacinação no cabeçalho da criança" loading="lazy" />
+              <div class="screenshot-caption">Vacinação — Tela do Cabeçalho da Criança</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p>Consultar: <strong>Registro de Aplicação das Vacinas</strong> do Calendário Nacional e Registros de Outras Vacinas e Campanhas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.13 Vitamina A -->
+      <div class="content-section fade-up" id="vitamina-a">
+        <h2><span class="section-num">2.7.13</span> Suplementação de Vitamina A</h2>
+        <p>A suplementação de vitamina A é uma estratégia importante na prevenção de deficiência nutricional.</p>
+        <div class="alert alert-info">
+          <span class="alert-icon">🍊</span>
+          <div><strong>Onde consultar no Fastmedic?</strong>
+            <ul>
+              <li>No <strong>cabeçalho da criança</strong></li>
+              <li>No item das Ferramentas do SOAP: <strong>Indicação de Vacinas</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/suplementacao_vitamina_a.png" alt="Suplementação de Vitamina A" loading="lazy" />
+              <div class="screenshot-caption">Suplementação de Vitamina A</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p><strong>Registros da Suplementação de Vitamina A, Ferro ou Outros Micronutrientes</strong> — anotar as doses administradas de vitamina A e o acompanhamento da suplementação ao longo das consultas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.14 Ferro -->
+      <div class="content-section fade-up" id="ferro">
+        <h2><span class="section-num">2.7.14</span> Suplementação de Ferro</h2>
+        <p>A suplementação de ferro é essencial para prevenção da anemia ferropriva.</p>
+        <div class="alert alert-info">
+          <span class="alert-icon">🔴</span>
+          <div><strong>No Fastmedic</strong>
+            <p>Consultar registros de prescrição e dispensação. O profissional pode registrar no campo <strong>Subjetivo</strong> orientações sobre uso, adesão e prescrição.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/suplementacao_ferro.png" alt="Suplementação de Ferro" loading="lazy" />
+              <div class="screenshot-caption">Suplementação de Ferro</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p><strong>Suplementação de Ferro e Outros Micronutrientes</strong> — anotar as doses administradas e o acompanhamento da suplementação ao longo das consultas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.7.15 Odonto -->
+      <div class="content-section fade-up" id="odonto">
+        <h2><span class="section-num">2.7.15</span> Puericultura Odontológica</h2>
+        <p>A saúde bucal deve ser integrada ao acompanhamento da criança desde os primeiros meses de vida.</p>
+        <div class="alert alert-info">
+          <span class="alert-icon">🦷</span>
+          <div><strong>No Fastmedic</strong>
+            <p>Consultar registros de atendimentos odontológicos realizados. O profissional deve reforçar orientações sobre higiene oral, aleitamento e encaminhamento para avaliação odontológica quando necessário.</p>
+          </div>
+        </div>
+        <div class="screenshots">
+          <div class="screenshots-row">
+            <div class="screenshot-item">
+              <img src="assets/images/consultas_odontologicas.png" alt="Registros consultas odontológicas" loading="lazy" />
+              <div class="screenshot-caption">Registros das Consultas Odontológicas</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-caderneta" style="margin-top:16px;">
+          <span class="alert-icon">📒</span>
+          <div><strong>📒 Registro na Caderneta da Criança</strong>
+            <p><strong>Acompanhamento Odontológico</strong> — Registros das Consultas Odontológicas: verificar orientações e registros relacionados à saúde bucal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.8 Finalizar -->
+      <div class="content-section fade-up" id="finalizar" style="border-color: var(--verde); background: var(--verde-light);">
+        <h2><span class="section-num" style="background: var(--verde-dark);">2.8</span> Finalizar Consulta de Puericultura</h2>
+        <p>Após o preenchimento de todos os itens da Ferramenta do SOAP — Programa Criança/Adolescente, <strong>concluir o atendimento de Puericultura clicando em Salvar</strong>.</p>
+        <div class="alert alert-tip">
+          <span class="alert-icon">✅</span>
+          <div><strong>Checklist final da consulta</strong>
+            <ul>
+              <li>✅ Subjetivo preenchido com motivo do atendimento</li>
+              <li>✅ BPA selecionado e salvo</li>
+              <li>✅ Dados antropométricos inseridos (peso, altura, PC)</li>
+              <li>✅ Avaliação com CIAP2 ou CID registrada</li>
+              <li>✅ Plano com condutas e orientações</li>
+              <li>✅ Ferramentas do SOAP preenchidas (conforme indicação)</li>
+              <li>✅ Caderneta da Criança atualizada</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="text-decoration:none; margin-bottom:12px; display:inline-flex;">
+            <div class="logo-icon">👶</div>
+            Registros que Cuidam
+          </a>
+          <p>Guia Digital para Apoio ao Registro da Puericultura na Atenção Primária à Saúde.</p>
+          <p style="margin-top:8px; font-size:0.78rem;">✏️ Arina Araújo da Silva</p>
+        </div>
+        <div class="footer-col">
+          <h4>Seções do Prontuário</h4>
+          <ul>
+            <li><a href="#acesso">2.1 Acesso ao Sistema</a></li>
+            <li><a href="#subjetivo">2.3 Subjetivo e BPA</a></li>
+            <li><a href="#objetivo">2.4 Objetivo</a></li>
+            <li><a href="#avaliacao">2.5 Avaliação</a></li>
+            <li><a href="#plano">2.6 Plano</a></li>
+            <li><a href="#ferramentas">2.7 Ferramentas SOAP</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="https://wp.ufpel.edu.br/ipab/files/2025/06/caderneta_crianca_menina_passaporte_cidadania_7ed.pdf" target="_blank" rel="noopener">Caderneta — Menina</a></li>
+            <li><a href="https://wp.ufpel.edu.br/ipab/files/2025/06/caderneta_crianca_menino_passaporte_cidadania_7ed.pdf" target="_blank" rel="noopener">Caderneta — Menino</a></li>
+            <li><a href="https://meususdigital.saude.gov.br/" target="_blank" rel="noopener">Meu SUS Digital</a></li>
+            <li><a href="https://saude.fastmedic.com.br/fortaleza/" target="_blank" rel="noopener">Fastmedic</a></li>
+            <li><a href="referencias.html">Referências</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Registros que Cuidam — RENASF / FIOCRUZ Ceará</span>
+        <span>Elaborado por <a href="#" style="color: var(--verde);">Setor C Digital</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Voltar ao topo">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

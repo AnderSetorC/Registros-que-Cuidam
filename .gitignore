@@ -1,0 +1,23 @@
+# Arquivos temporários e de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Extração temporária
+doc_content.txt
+
+# Node (caso use ferramentas de build futuramente)
+node_modules/
+.env
+
+# Vercel
+.vercel/
