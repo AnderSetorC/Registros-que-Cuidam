@@ -510,6 +510,10 @@ p  { margin-bottom: 1rem; }
   font-size: 0.85rem; margin-top: 12px;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 /* ── Accordion ──────────────────────────────── */
 .accordion { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
