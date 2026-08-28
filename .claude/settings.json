@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(git merge *)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(git ls-tree *)",
+      "WebFetch(domain:registros-que-cuidam.vercel.app)"
     ]
   }
 }
