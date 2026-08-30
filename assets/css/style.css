@@ -687,30 +687,116 @@ footer {
 .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(59,191,173,0.5); }
 
 /* ── Responsive ─────────────────────────────── */
+
+/* ── Global overflow guard ───────────────────── */
+html, body { overflow-x: hidden; }
+
+/* Prevent any element from breaking the viewport width */
+.inner-page,
+.content-section,
+.alert,
+.step,
+.acc-item,
+.bpa-card,
+.info-card,
+.screenshot-item,
+.sidebar {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Ensure all text inside alerts wraps properly */
+.alert p, .alert ul, .alert li, .alert strong,
+.alert span, .alert div {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal !important;
+}
+
+/* List items inside alerts never use nowrap */
+.alert ul li { white-space: normal !important; }
+
+/* Images always respect their container */
+img { max-width: 100%; height: auto; display: block; }
+
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
   .hero { padding: 80px 0 60px; min-height: auto; }
   .hero-ctas { justify-content: center; }
   .hero-image { order: -1; }
+
+  /* Sidebar stacks below content on tablet/mobile */
   .inner-page { grid-template-columns: 1fr; }
   .sidebar { position: static; max-height: none; }
+
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .info-grid { grid-template-columns: 1fr; }
   .bpa-cards { grid-template-columns: 1fr; }
   .ficha-grid { grid-template-columns: 1fr; }
   .caderneta-links { grid-template-columns: 1fr; }
-  .screenshots-row.cols-2, .screenshots-row.cols-3 { grid-template-columns: 1fr; }
+  .screenshots-row.cols-2,
+  .screenshots-row.cols-3 { grid-template-columns: 1fr; }
 }
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .cards-grid { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
-  .content-section { padding: 24px 18px; }
+
+  /* Content sections: tighter padding on phone */
+  .content-section { padding: 20px 16px; }
+
+  /* Inner page: no side padding bleed */
+  .inner-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Alerts: smaller padding, no overflow */
+  .alert { padding: 14px 16px; gap: 10px; }
+  .alert-icon { font-size: 1rem; }
+
+  /* Steps: vertical layout on tiny screens */
+  .step { flex-direction: column; gap: 10px; }
+
+  /* BPA / info grids already 1-col from 900px */
+  .bpa-cards,
+  .info-grid { grid-template-columns: 1fr; }
+
+  /* Section headings: allow wrap */
+  .content-section h2 {
+    font-size: 1.15rem;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Sidebar on mobile: compact */
+  .sidebar { padding: 16px; }
+  .sidebar-nav a { font-size: 0.82rem; padding: 8px 10px; }
 }
+
 @media (max-width: 480px) {
-  .container { padding: 0 16px; }
+  .container { padding: 0 12px; }
+  .inner-page { padding-left: 12px; padding-right: 12px; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
+
+  /* Even tighter content sections */
+  .content-section { padding: 16px 14px; margin-bottom: 16px; }
+
+  /* Alert: minimal padding */
+  .alert { padding: 12px 14px; flex-direction: row; }
+
+  /* Typography scale down slightly */
+  .content-section h2 { font-size: 1.05rem; }
+  .content-section h3 { font-size: 0.95rem; }
+
+  /* Caderneta links: always 1 col */
+  .caderneta-links { grid-template-columns: 1fr; }
+
+  /* Screenshot rows: always 1 col */
+  .screenshots-row { grid-template-columns: 1fr !important; }
 }
 
 /* ── Utilities ──────────────────────────────── */
