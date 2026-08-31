@@ -4,7 +4,8 @@
       "Bash(git merge *)",
       "Bash(git config *)",
       "Bash(git ls-tree *)",
-      "WebFetch(domain:registros-que-cuidam.vercel.app)"
+      "WebFetch(domain:registros-que-cuidam.vercel.app)",
+      "Bash(rtk git *)"
     ]
   }
 }
