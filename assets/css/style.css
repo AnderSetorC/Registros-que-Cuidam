@@ -456,7 +456,8 @@ p  { margin-bottom: 1rem; }
 .alert-warn  { background: var(--amarelo-light); border-color: var(--amarelo); }
 .alert-caderneta { background: linear-gradient(135deg, #EDE9F8, #E8F2FB); border-color: var(--roxo); }
 .alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.alert strong { display: block; margin-bottom: 4px; font-size: 0.9rem; }
+.alert > div > strong:first-child { display: block; margin-bottom: 4px; font-size: 0.9rem; }
+.alert p strong { display: inline; font-size: inherit; }
 .alert p, .alert ul { font-size: 0.88rem; color: var(--texto-suave); margin: 0; }
 .alert ul { padding-left: 16px; list-style: disc; }
 .alert ul li { margin-bottom: 4px; }
