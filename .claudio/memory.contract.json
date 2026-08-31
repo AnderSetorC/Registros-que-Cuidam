@@ -1,0 +1,34 @@
+{
+  "version": "1",
+  "workspaceId": "8662799c037b2f50",
+  "workspaceName": "Registros-que- Cuidam",
+  "enabled": true,
+  "updatedAt": "2026-08-30T23:54:52.256Z",
+  "detectedStack": {
+    "languages": [],
+    "frameworks": [],
+    "uiLibraries": [],
+    "orm": [],
+    "authLibraries": [],
+    "validationLibraries": [],
+    "paymentLibraries": [],
+    "testTools": [],
+    "scripts": {},
+    "importantDirs": [],
+    "sensitiveFiles": []
+  },
+  "sections": {
+    "stack": [],
+    "packageManager": [],
+    "architectureRules": [],
+    "codingConventions": [],
+    "sensitiveFiles": [],
+    "forbiddenActions": [],
+    "allowedCommands": [],
+    "businessRules": [],
+    "integrationRules": [],
+    "testingExpectations": [],
+    "agentInstructions": [],
+    "openQuestions": []
+  }
+}
