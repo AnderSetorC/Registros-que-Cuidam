@@ -5,7 +5,10 @@
       "Bash(git config *)",
       "Bash(git ls-tree *)",
       "WebFetch(domain:registros-que-cuidam.vercel.app)",
-      "Bash(rtk git *)"
+      "Bash(rtk git *)",
+      "Bash(rtk python *)",
+      "Bash(rtk chromium-cli *)",
+      "Bash(rtk npx *)"
     ]
   }
 }
